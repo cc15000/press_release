@@ -1,0 +1,29 @@
+<div class="span12">
+<h1>Press Releases</h1><br />
+
+<table class="table table-striped">
+  <tr>
+    <th>Title</th>
+    <th>Date</th>
+    <th>Body</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @releases.each do |release| %>
+  <tr>
+    <td><%= release.title %></td>
+    <td><%= release.date %></td>
+    <td><%= release.body %></td>
+    <td><%= link_to 'Show', release, { :class => "btn btn-info btn-small"}  %></td>
+    <td><%= link_to 'Edit', edit_release_path(release), { :class => "btn btn-warning btn-small"}  %></td>
+    <td><%= link_to 'Destroy', release, { :class => "btn btn-danger btn-small", confirm: 'Are you sure?', method: :delete } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Release', new_release_path, { :class => "btn btn-primary btn-large"} %>
+</div>
